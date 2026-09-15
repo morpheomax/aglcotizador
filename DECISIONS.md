@@ -520,3 +520,9 @@ Consecuencia:
 - Cada sala muestra una barra compacta con nombre, agente, sistema y estado junto a un botón `Eliminar`.
 - El sidebar conserva fondo azul petróleo y labels claros, mientras los valores dentro de inputs/selects usan texto oscuro sobre fondo claro.
 - La eliminación dentro del formulario sigue disponible como acción secundaria.
+
+Actualización:
+
+- El encabezado principal se reemplaza por un bloque narrativo que explica el flujo `Proyecto -> Salas -> Validación -> BOM`.
+- Los botones secundarios y sus estados hover usan texto azul oscuro sobre fondos claros para evitar texto blanco sobre blanco.
+- Los botones del sidebar tienen reglas específicas para que los textos internos no hereden el color claro usado por los labels del panel lateral.

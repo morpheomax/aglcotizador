@@ -133,8 +133,7 @@ def render_app() -> None:
     project = _render_sidebar_project()
     st.session_state["project_info"] = project
 
-    st.title("Cotizador Supresión")
-    st.caption("FK-5-1-12 / FM-200 · Predimensionamiento técnico-comercial")
+    _render_app_hero()
 
     _render_status_bar()
     tabs = st.tabs(["1. Sistemas y salas", "2. Resultados", "3. BOM y opcionales"])
@@ -147,6 +146,43 @@ def render_app() -> None:
 
     with tabs[2]:
         _render_bom_tab(catalogs)
+
+
+def _render_app_hero() -> None:
+    st.markdown(
+        """
+        <div class="app-hero">
+            <div class="app-hero-eyebrow">Predimensionamiento técnico-comercial</div>
+            <div class="app-hero-title">Cotizador de supresión por agente limpio</div>
+            <div class="app-hero-subtitle">
+                Carga salas, valida agente y cilindros, revisa concentraciones y genera un BOM preliminar trazable a manuales ANSUL.
+            </div>
+        </div>
+        <div class="flow-rail">
+            <div class="flow-card">
+                <div class="flow-number">1</div>
+                <div class="flow-title">Proyecto</div>
+                <div class="flow-text">Completa cliente, ubicación y moneda en el panel lateral.</div>
+            </div>
+            <div class="flow-card">
+                <div class="flow-number">2</div>
+                <div class="flow-title">Salas</div>
+                <div class="flow-text">Define agente, perfil, sistema, dimensiones y condiciones de diseño.</div>
+            </div>
+            <div class="flow-card">
+                <div class="flow-number">3</div>
+                <div class="flow-title">Validación</div>
+                <div class="flow-text">Revisa agente, concentración lograda, cilindros y advertencias técnicas.</div>
+            </div>
+            <div class="flow-card">
+                <div class="flow-number">4</div>
+                <div class="flow-title">BOM</div>
+                <div class="flow-text">Genera detalle, consolida códigos y descarga el Excel de cotización.</div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def _catalog_cache_key() -> tuple[tuple[str, float], ...]:
@@ -217,7 +253,7 @@ def _inject_style() -> None:
             padding-bottom: 2.5rem;
             max-width: 1480px;
         }
-        h1, h2, h3, h4, p, label, span {
+        h1, h2, h3, h4, p, label {
             color: var(--text);
         }
         h1 {
@@ -235,7 +271,7 @@ def _inject_style() -> None:
             font-size: 0.96rem;
         }
         section[data-testid="stSidebar"] {
-            background: linear-gradient(180deg, var(--sidebar-bg) 0%, #0a2238 100%);
+            background: linear-gradient(180deg, #071b2d 0%, #0c2a43 100%);
             border-right: 1px solid var(--sidebar-border);
             box-shadow: 10px 0 30px rgba(7, 27, 45, 0.18);
         }
@@ -250,18 +286,25 @@ def _inject_style() -> None:
             color: inherit !important;
         }
         section[data-testid="stSidebar"] div[data-testid="stExpander"] {
-            background: var(--sidebar-panel);
+            background: rgba(11, 41, 66, 0.92);
             border-color: var(--sidebar-border);
             box-shadow: none;
+        }
+        section[data-testid="stSidebar"] div[data-testid="stExpander"] summary,
+        section[data-testid="stSidebar"] div[data-testid="stExpander"] summary * {
+            color: #f2f8fc !important;
         }
         section[data-testid="stSidebar"] input,
         section[data-testid="stSidebar"] textarea,
         section[data-testid="stSidebar"] select {
-            background: #f8fbff !important;
+            background: #ffffff !important;
             color: #102033 !important;
         }
-        section[data-testid="stSidebar"] div[data-baseweb="select"] div,
-        section[data-testid="stSidebar"] div[data-baseweb="select"] span,
+        section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
+            background: #ffffff !important;
+            border-color: rgba(184, 215, 236, 0.45) !important;
+        }
+        section[data-testid="stSidebar"] div[data-baseweb="select"] > div *,
         section[data-testid="stSidebar"] input,
         section[data-testid="stSidebar"] textarea {
             color: #102033 !important;
@@ -276,6 +319,13 @@ def _inject_style() -> None:
         section[data-testid="stSidebar"] div[data-testid="stExpander"] label,
         section[data-testid="stSidebar"] div[data-testid="stExpander"] p {
             color: #e8f3fb !important;
+        }
+        section[data-testid="stSidebar"] div[data-testid="stAlert"] {
+            background: rgba(255, 251, 235, 0.98) !important;
+            border-color: rgba(245, 158, 11, 0.45) !important;
+        }
+        section[data-testid="stSidebar"] div[data-testid="stAlert"] * {
+            color: #5b3413 !important;
         }
         .sidebar-brand {
             padding: 0.85rem 0.9rem;
@@ -319,11 +369,57 @@ def _inject_style() -> None:
             border-radius: 10px;
             font-weight: 700;
             border: 1px solid var(--primary);
+            transition: background 140ms ease, border-color 140ms ease, color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+        }
+        div[data-testid="stButton"] button:not([kind="primary"]),
+        div[data-testid="stDownloadButton"] button:not([kind="primary"]) {
+            background: #ffffff;
+            color: var(--primary-dark) !important;
+        }
+        div[data-testid="stButton"] button:not([kind="primary"]) p,
+        div[data-testid="stDownloadButton"] button:not([kind="primary"]) p {
+            color: var(--primary-dark) !important;
+        }
+        div[data-testid="stButton"] button:hover,
+        div[data-testid="stDownloadButton"] button:hover {
+            border-color: var(--primary-dark) !important;
+            box-shadow: 0 8px 18px rgba(15, 76, 117, 0.15);
+            transform: translateY(-1px);
+        }
+        div[data-testid="stButton"] button:not([kind="primary"]):hover,
+        div[data-testid="stDownloadButton"] button:not([kind="primary"]):hover {
+            background: var(--primary-soft) !important;
+            color: var(--primary-dark) !important;
+        }
+        div[data-testid="stButton"] button:not([kind="primary"]):hover p,
+        div[data-testid="stDownloadButton"] button:not([kind="primary"]):hover p {
+            color: var(--primary-dark) !important;
         }
         div[data-testid="stButton"] button[kind="primary"],
         div[data-testid="stDownloadButton"] button[kind="primary"] {
             background: var(--primary);
             color: #ffffff !important;
+        }
+        div[data-testid="stButton"] button[kind="primary"]:hover,
+        div[data-testid="stDownloadButton"] button[kind="primary"]:hover {
+            background: #0b3a5b !important;
+            color: #ffffff !important;
+        }
+        section[data-testid="stSidebar"] div[data-testid="stButton"] button {
+            background: #ffffff !important;
+            color: #0b2942 !important;
+            border-color: rgba(184, 215, 236, 0.65) !important;
+        }
+        section[data-testid="stSidebar"] div[data-testid="stButton"] button p {
+            color: #0b2942 !important;
+        }
+        section[data-testid="stSidebar"] div[data-testid="stButton"] button:hover {
+            background: #dff3ff !important;
+            border-color: #38bdf8 !important;
+            color: #071b2d !important;
+        }
+        section[data-testid="stSidebar"] div[data-testid="stButton"] button:hover p {
+            color: #071b2d !important;
         }
         div[data-testid="stButton"] button[kind="primary"] p,
         div[data-testid="stDownloadButton"] button[kind="primary"] p {
@@ -374,8 +470,72 @@ def _inject_style() -> None:
             background: var(--surface) !important;
             border-color: var(--border-strong) !important;
         }
-        div[data-baseweb="select"] * {
+        div[data-baseweb="select"] > div * {
             color: var(--text) !important;
+        }
+        .app-hero {
+            background: linear-gradient(135deg, #08243a 0%, #0f4c75 58%, #155f8d 100%);
+            border-radius: 22px;
+            padding: 1.35rem 1.45rem;
+            margin: 0.2rem 0 1rem 0;
+            color: #ffffff;
+            box-shadow: 0 18px 38px rgba(8, 36, 58, 0.18);
+        }
+        .app-hero-eyebrow {
+            color: #b8e6ff;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+        .app-hero-title {
+            color: #ffffff;
+            font-size: 1.9rem;
+            font-weight: 850;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+        .app-hero-subtitle {
+            color: #d9effb;
+            margin-top: 0.45rem;
+            max-width: 860px;
+            font-size: 0.98rem;
+        }
+        .flow-rail {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin: 0.85rem 0 1.15rem 0;
+        }
+        .flow-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 0.85rem 0.9rem;
+            box-shadow: 0 8px 20px rgba(12, 32, 52, 0.06);
+        }
+        .flow-number {
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+            font-weight: 850;
+            margin-bottom: 0.45rem;
+        }
+        .flow-title {
+            color: var(--text);
+            font-weight: 800;
+            margin-bottom: 0.18rem;
+        }
+        .flow-text {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.35;
         }
         .small-note {
             color: var(--text-muted);
@@ -466,8 +626,12 @@ def _inject_style() -> None:
             margin-bottom: 0.75rem;
             box-shadow: var(--shadow);
         }
+        @media (max-width: 900px) {
+            .flow-rail { grid-template-columns: 1fr 1fr; }
+        }
         @media (max-width: 700px) {
             .workflow-strip { grid-template-columns: 1fr; }
+            .flow-rail { grid-template-columns: 1fr; }
         }
         hr {
             border-color: var(--border);
@@ -544,9 +708,9 @@ def _render_rooms_tab(catalogs: dict[str, pd.DataFrame]) -> None:
     st.markdown(
         """
         <div class="workflow-strip">
-            <div class="workflow-step"><strong>1. Describe la sala</strong>Nombre, agente y dimensiones.</div>
-            <div class="workflow-step"><strong>2. Define qué se protege</strong>Sala principal, piso técnico y cielo falso.</div>
-            <div class="workflow-step"><strong>3. Guarda y revisa</strong>Obtén agente, cilindros y boquillas al instante.</div>
+            <div class="workflow-step"><strong>Datos mínimos</strong>Nombre, agente, perfil, sistema y dimensiones.</div>
+            <div class="workflow-step"><strong>Protección</strong>Activa piso técnico, cielo falso o reducciones solo cuando apliquen.</div>
+            <div class="workflow-step"><strong>Resultado inmediato</strong>Guarda para ver agente, concentración, cilindros y boquillas.</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -557,7 +721,7 @@ def _render_rooms_tab(catalogs: dict[str, pd.DataFrame]) -> None:
             _add_room()
             st.rerun()
     with note_col:
-        st.caption("Abre una sala, completa los pasos y guarda. Los ajustes avanzados son opcionales.")
+        st.caption("Completa solo los campos visibles para un caso estándar. Usa Ajustes avanzados para manifold, reducciones u opcionales.")
 
     if rooms_df.empty:
         st.info("No hay salas cargadas. Usa Agregar sala para comenzar.")
