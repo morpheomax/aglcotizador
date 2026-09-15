@@ -159,25 +159,33 @@ def _render_app_hero() -> None:
             </div>
         </div>
         <div class="flow-rail">
-            <div class="flow-card">
-                <div class="flow-number">1</div>
-                <div class="flow-title">Proyecto</div>
-                <div class="flow-text">Completa cliente, ubicación y moneda en el panel lateral.</div>
+            <div class="flow-step-compact">
+                <div class="flow-circle">1</div>
+                <div class="flow-copy">
+                    <div class="flow-title">Proyecto</div>
+                    <div class="flow-text">Datos generales</div>
+                </div>
             </div>
-            <div class="flow-card">
-                <div class="flow-number">2</div>
-                <div class="flow-title">Salas</div>
-                <div class="flow-text">Define agente, perfil, sistema, dimensiones y condiciones de diseño.</div>
+            <div class="flow-step-compact">
+                <div class="flow-circle">2</div>
+                <div class="flow-copy">
+                    <div class="flow-title">Salas</div>
+                    <div class="flow-text">Dimensiones y perfiles</div>
+                </div>
             </div>
-            <div class="flow-card">
-                <div class="flow-number">3</div>
-                <div class="flow-title">Validación</div>
-                <div class="flow-text">Revisa agente, concentración lograda, cilindros y advertencias técnicas.</div>
+            <div class="flow-step-compact">
+                <div class="flow-circle">3</div>
+                <div class="flow-copy">
+                    <div class="flow-title">Validación</div>
+                    <div class="flow-text">Agente y cilindros</div>
+                </div>
             </div>
-            <div class="flow-card">
-                <div class="flow-number">4</div>
-                <div class="flow-title">BOM</div>
-                <div class="flow-text">Genera detalle, consolida códigos y descarga el Excel de cotización.</div>
+            <div class="flow-step-compact">
+                <div class="flow-circle">4</div>
+                <div class="flow-copy">
+                    <div class="flow-title">BOM</div>
+                    <div class="flow-text">Consolidado y Excel</div>
+                </div>
             </div>
         </div>
         """,
@@ -475,9 +483,9 @@ def _inject_style() -> None:
         }
         .app-hero {
             background: linear-gradient(135deg, #08243a 0%, #0f4c75 58%, #155f8d 100%);
-            border-radius: 22px;
-            padding: 1.35rem 1.45rem;
-            margin: 0.2rem 0 1rem 0;
+            border-radius: 18px;
+            padding: 1rem 1.15rem;
+            margin: 0.15rem 0 0.7rem 0;
             color: #ffffff;
             box-shadow: 0 18px 38px rgba(8, 36, 58, 0.18);
         }
@@ -485,57 +493,78 @@ def _inject_style() -> None:
             color: #b8e6ff;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 800;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.25rem;
         }
         .app-hero-title {
             color: #ffffff;
-            font-size: 1.9rem;
+            font-size: 1.55rem;
             font-weight: 850;
             letter-spacing: -0.03em;
             line-height: 1.1;
         }
         .app-hero-subtitle {
             color: #d9effb;
-            margin-top: 0.45rem;
+            margin-top: 0.35rem;
             max-width: 860px;
-            font-size: 0.98rem;
+            font-size: 0.92rem;
         }
         .flow-rail {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 0.75rem;
-            margin: 0.85rem 0 1.15rem 0;
-        }
-        .flow-card {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 0.45rem 0 0.85rem 0;
             background: #ffffff;
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 0.85rem 0.9rem;
+            border-radius: 999px;
+            padding: 0.38rem 0.45rem;
             box-shadow: 0 8px 20px rgba(12, 32, 52, 0.06);
+            overflow-x: auto;
         }
-        .flow-number {
-            width: 1.75rem;
-            height: 1.75rem;
+        .flow-step-compact {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 190px;
+            padding: 0.18rem 0.65rem 0.18rem 0.22rem;
+            white-space: nowrap;
+        }
+        .flow-step-compact:not(:last-child)::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 2rem;
+            background: var(--border);
+            margin-left: auto;
+        }
+        .flow-circle {
+            min-width: 2.05rem;
+            width: 2.05rem;
+            height: 2.05rem;
             border-radius: 999px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--primary-soft);
-            color: var(--primary-dark);
+            background: linear-gradient(135deg, #0f4c75, #38bdf8);
+            color: #ffffff;
             font-weight: 850;
-            margin-bottom: 0.45rem;
+            box-shadow: 0 5px 14px rgba(15, 76, 117, 0.22);
+        }
+        .flow-copy {
+            min-width: 0;
         }
         .flow-title {
             color: var(--text);
             font-weight: 800;
-            margin-bottom: 0.18rem;
+            font-size: 0.9rem;
+            line-height: 1.1;
         }
         .flow-text {
             color: var(--text-muted);
-            font-size: 0.88rem;
-            line-height: 1.35;
+            font-size: 0.76rem;
+            line-height: 1.2;
+            margin-top: 0.12rem;
         }
         .small-note {
             color: var(--text-muted);
@@ -626,12 +655,11 @@ def _inject_style() -> None:
             margin-bottom: 0.75rem;
             box-shadow: var(--shadow);
         }
-        @media (max-width: 900px) {
-            .flow-rail { grid-template-columns: 1fr 1fr; }
-        }
         @media (max-width: 700px) {
             .workflow-strip { grid-template-columns: 1fr; }
-            .flow-rail { grid-template-columns: 1fr; }
+            .flow-rail { border-radius: 16px; }
+            .flow-step-compact { min-width: 165px; }
+            .app-hero-title { font-size: 1.35rem; }
         }
         hr {
             border-color: var(--border);

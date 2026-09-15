@@ -21,7 +21,7 @@ MVP funcional inicial creado:
 - UI organizada en 3 pasos: sistemas y salas, resultados, BOM y opcionales.
 - Diseño visual optimizado con mayor contraste, métricas tipo tarjeta y vistas de tabla reducidas.
 - Sidebar técnico diferenciado con paleta azul profesional, controles legibles y estados hover consistentes.
-- Encabezado narrativo con flujo guiado de proyecto, salas, validación y BOM para orientar al usuario.
+- Encabezado narrativo compacto con steps circulares de proyecto, salas, validación y BOM para orientar al usuario sin consumir altura útil.
 - Ingreso de múltiples salas mediante tarjetas independientes con identidad estable.
 - Acciones directas para agregar y eliminar salas, incluyendo botón rápido de eliminación sin abrir la tarjeta.
 - Botón `Guardar y calcular esta sala`, con agente en kg/lb y configuración técnica mostrados inmediatamente.

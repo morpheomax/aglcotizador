@@ -524,5 +524,6 @@ Consecuencia:
 Actualización:
 
 - El encabezado principal se reemplaza por un bloque narrativo que explica el flujo `Proyecto -> Salas -> Validación -> BOM`.
+- La guía superior usa steps circulares compactos para reducir altura en cotizaciones con muchas salas.
 - Los botones secundarios y sus estados hover usan texto azul oscuro sobre fondos claros para evitar texto blanco sobre blanco.
 - Los botones del sidebar tienen reglas específicas para que los textos internos no hereden el color claro usado por los labels del panel lateral.
