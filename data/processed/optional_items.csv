@@ -1,0 +1,9 @@
+option_id,agent_type,system_type,category,code,product,unit,default_qty,selected_by_default,notes,unit_price
+OPT-MANUAL-RELEASE,FM-200,SISTEMA,ACTUACION,MANUAL-RELEASE,Estación manual de descarga,un,1,false,Opcional según alcance,
+OPT-MANUAL-RELEASE,FK-5-1-12,SISTEMA,ACTUACION,MANUAL-RELEASE,Estación manual de descarga,un,1,false,Opcional según alcance,
+OPT-ABORT,FM-200,SISTEMA,ACTUACION,ABORT-SWITCH,Pulsador de aborto,un,1,false,Opcional según alcance,
+OPT-ABORT,FK-5-1-12,SISTEMA,ACTUACION,ABORT-SWITCH,Pulsador de aborto,un,1,false,Opcional según alcance,
+OPT-WARNING-SIGN,FM-200,SISTEMA,SENALIZACION,WARNING-SIGN,Aviso de advertencia descarga agente limpio,un,1,true,Sugerido,
+OPT-WARNING-SIGN,FK-5-1-12,SISTEMA,SENALIZACION,WARNING-SIGN,Aviso de advertencia descarga agente limpio,un,1,true,Sugerido,
+OPT-MANIFOLD-SWITCH,FM-200,MANIFOLD,MANIFOLD,MANIFOLD-SWITCH,Componente de conmutación manifold,un,1,false,Opcional manifold,
+OPT-MANIFOLD-SWITCH,FK-5-1-12,MANIFOLD,MANIFOLD,MANIFOLD-SWITCH,Componente de conmutación manifold,un,1,false,Opcional manifold,

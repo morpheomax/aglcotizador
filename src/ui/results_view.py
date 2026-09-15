@@ -1,0 +1,1 @@
+"""Technical results UI component."""

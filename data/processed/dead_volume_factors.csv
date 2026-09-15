@@ -1,0 +1,5 @@
+nominal_diameter_dn,dead_end_volume_l,reserve_section_volume_l,source
+65,0.41,0.95,"ANSUL manuals PN442940-01 and PN451540-01 Table 5-8"
+80,0.64,2.13,"ANSUL manuals PN442940-01 and PN451540-01 Table 5-8"
+100,1.11,3.69,"ANSUL manuals PN442940-01 and PN451540-01 Table 5-8"
+150,2.52,8.41,"ANSUL manuals PN442940-01 and PN451540-01 Table 5-8"

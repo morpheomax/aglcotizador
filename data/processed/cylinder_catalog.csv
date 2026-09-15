@@ -1,0 +1,17 @@
+agent_type,cylinder_label,cylinder_code,size_l,min_fill_kg,max_fill_kg,min_fill_lb,max_fill_lb,recommended_max_fill_pct,valve_size_mm,source,active
+FK-5-1-12,TANK SIZE 8L,445732,8.0,4.0,9.5,8.818,20.944,85,,"ANSUL 451540-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FK-5-1-12,TANK SIZE 16L,445733,16.0,8.0,19.0,17.637,41.888,85,,"ANSUL 451540-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FK-5-1-12,TANK SIZE 32L,445734,32.0,16.0,38.0,35.274,83.776,85,,"ANSUL 451540-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FK-5-1-12,TANK SIZE 52L,445735,52.0,26.0,62.0,57.320,136.687,85,,"ANSUL 451540-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FK-5-1-12,TANK SIZE 106L,445736,106.0,53.0,127.0,116.845,279.987,85,,"ANSUL 451540-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FK-5-1-12,TANK SIZE 147L,445737,147.0,73.5,176.0,162.040,388.014,85,,"ANSUL 451540-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FK-5-1-12,TANK SIZE 180L,445738,180.0,90.0,208.0,198.416,458.562,85,,"ANSUL 451540-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FK-5-1-12,TANK SIZE 343L,445739,343.0,171.5,386.0,378.093,850.984,85,,"ANSUL 451540-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FM-200,TANK SIZE 8L,445732,8.0,4.0,8.0,8.818,17.637,85,,"ANSUL 442940-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FM-200,TANK SIZE 16L,445733,16.0,8.0,16.0,17.637,35.274,85,,"ANSUL 442940-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FM-200,TANK SIZE 32L,445734,32.0,16.0,32.0,35.274,70.548,85,,"ANSUL 442940-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FM-200,TANK SIZE 52L,445735,52.0,26.0,52.0,57.320,114.640,85,,"ANSUL 442940-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FM-200,TANK SIZE 106L,445736,106.0,53.0,106.0,116.845,233.690,85,,"ANSUL 442940-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FM-200,TANK SIZE 147L,445737,147.0,73.5,147.0,162.040,324.080,85,,"ANSUL 442940-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FM-200,TANK SIZE 180L,445738,180.0,90.0,180.0,198.416,396.832,85,,"ANSUL 442940-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True
+FM-200,TANK SIZE 343L,445739,343.0,171.5,343.0,378.093,756.186,85,,"ANSUL 442940-01 Table 2-6; commercial SKU from calculo_supresion.xlsx",True

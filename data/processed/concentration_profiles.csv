@@ -1,0 +1,10 @@
+profile_id,agent_type,profile_label,hazard_class,listing,design_concentration_pct,occupied_max_pct,requires_technical_review,active,source
+FM_UL_A,FM-200,UL Class A,Class A,UL,6.70,9.0,false,true,"ANSUL PN442940-01 Table 5-1"
+FM_ULFM_A,FM-200,UL/FM Class A,Class A,UL/FM,7.17,9.0,false,true,"ANSUL PN442940-01 Table 5-1; conservative combined profile"
+FM_UL_C,FM-200,UL Class C,Class C,UL,7.23,9.0,false,true,"ANSUL PN442940-01 Table 5-1"
+FM_FM_C,FM-200,FM Class C,Class C,FM,8.06,9.0,false,true,"ANSUL PN442940-01 Table 5-1"
+FM_B_HEPTANE,FM-200,Class B heptano,Class B,UL/FM,8.97,9.0,true,true,"ANSUL PN442940-01 Table 5-7; other fuels require Technical Services"
+FK_ULFM_A,FK-5-1-12,UL/FM Class A,Class A,UL/FM,4.50,10.0,false,true,"ANSUL PN451540-01 Table 5-1"
+FK_ULFM_C_452,FK-5-1-12,UL/FM Class C (4.52%),Class C,UL/FM,4.52,10.0,false,true,"ANSUL PN451540-01 Table 5-1; agent-manufacturer dependent"
+FK_UL_C_474,FK-5-1-12,UL Class C (4.74%),Class C,UL,4.74,10.0,false,true,"ANSUL PN451540-01 Table 5-1; agent-manufacturer dependent"
+FK_B_HEPTANE,FK-5-1-12,Class B heptano,Class B,UL/FM,5.85,10.0,true,true,"ANSUL PN451540-01 Table 5-7; other fuels require Technical Services"

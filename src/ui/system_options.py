@@ -1,0 +1,1 @@
+"""System options UI component."""
